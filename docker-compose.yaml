@@ -92,7 +92,7 @@ services:
     volumes:
       - "./config:/home/user/.arbitrum"
     command: --conf.file /home/user/.arbitrum/nodeConfig.json
-    
+
   das-server:
     image: offchainlabs/nitro-node:v2.3.3-6a1c1a7
     entrypoint: [ "/bin/bash", "/das-server.sh" ]
@@ -104,3 +104,10 @@ services:
     ports:
       - "9876:9876"
       - "9877:9877"
+
+  sc-verifier:
+    extends:
+      file: ./docker-compose/services/smart-contract-verifier.yml
+      service: smart-contract-verifier
+    ports:
+      - 8082:8050
