@@ -4,6 +4,7 @@ services:
     image: offchainlabs/nitro-node:v2.3.3-6a1c1a7
     entrypoint: [ "/bin/bash", "/das-server.sh" ]
     volumes:
+      - "./keys:/home/user/keys"
       - "./config:/home/user/.arbitrum"
       - "./das-server.sh:/das-server.sh"
       - "./das-data:/home/user/das-data"
